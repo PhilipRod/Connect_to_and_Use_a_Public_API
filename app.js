@@ -52,10 +52,11 @@ function displayEmployees(employeeData){
 function displayModal(index){
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employees[index];
-
+    
     let date = new Date(dob.date);
 
     const modalHTML = `
+    
 <img class="avatar" src="${picture.large}" />
 <div class="text-container">
 <h2 class="name">${name.first} ${name.last}</h2>
@@ -63,11 +64,12 @@ function displayModal(index){
 <p class="address">${city}</p>
 <hr />
 <p>${phone}</p>
-<p class="address">${street}, ${state} ${postcode}</p>
+<p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
 <p>Birthday:
 ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
 </div>
 `;
+
 
 overlay.classList.remove("hidden");
 modalContainer.innerHTML = modalHTML;
